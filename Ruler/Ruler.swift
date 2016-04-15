@@ -28,21 +28,22 @@ private enum ScreenModel {
 private let screenModel: ScreenModel = {
 
     let screen = UIScreen.mainScreen()
-    let nativeWidth = screen.nativeBounds.size.width
+//    let nativeWidth = screen.nativeBounds.size.width
+    let nativeWidth = screen.bounds.width
 
     switch nativeWidth {
 
-    case 2 * 320:
+    case 320:
         let nativeHeight = screen.nativeBounds.size.height
-        return nativeHeight > (2 * 480) ? .Classic(.Inch4) : .Classic(.Inch35)
+        return nativeHeight > (480) ? .Classic(.Inch4) : .Classic(.Inch35)
 
-    case 2 * 375:
+    case 375:
         return .Bigger
 
-    case 3 * 414:
+    case 414:
         return .BiggerPlus
 
-    case 2 * 768, 768:
+    case 768, 768:
         return .iPad(.Normal)
 
     case 2 * 1024:
